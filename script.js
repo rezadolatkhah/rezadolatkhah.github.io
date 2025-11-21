@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.3
     });
 
-    gsap.from(".job-title", {   
-        duration: 0.8,
-        y: 0,
-        y: 30,
+    
+    gsap.from(".job-title", {
+        duration: 0.9,
+        y: 40,
         opacity: 0,
         ease: "power3.out",
         delay: 0.5
@@ -37,66 +37,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     
-    const sections = gsap.utils.toArray("main section");
+    const allSections = gsap.utils.toArray("main section");
 
     gsap.timeline({
-        defaults: { opacity: 0, y: 60, ease: "power3.out" },
-        delay: 1.2   
+        defaults: { ease: "power4.out" },
+        delay: 1.0 
     })
-    .from(sections, {
-        y: 80,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.25,          
-        ease: "power4.out"
-    })
-    .from(sections, {
-        scale: 0.96,
+    .from(allSections, {
+        opacity: 1,
+        y: 0,
         duration: 1.2,
-        stagger: 0.25,
+        stagger: 0.28,        
+    })
+    .from(allSections, {
+        scale: 0.95,
+        duration: 1.4,
+        stagger: 0.28,
         ease: "power2.inOut"
-    }, "-=1.4"); 
+    }, "-=1.6"); 
 
-    
-    gsap.utils.toArray(".section, .fade-in").forEach(section => {
+
+    allSections.forEach(section => {
+        
         gsap.from(section.querySelector("h2"), {
             scrollTrigger: {
                 trigger: section,
-                start: "top 80%",
+                start: "top 82%",
+                once: true 
             },
-            x: -100,
+            x: -120,
             opacity: 0,
-            duration: 1,
+            duration: 1.1,
             ease: "power3.out"
         });
 
-        gsap.from(section.querySelectorAll(".entry, .skills-category, ul.cert-list li, ul.skills li, #references p"), {
+
+        gsap.from(section.querySelectorAll(".entry, .skills-category, ul.cert-list li, ul.skills li, #references p, .institution, .date"), {
             scrollTrigger: {
                 trigger: section,
-                start: "top 80%",
+                start: "top 82%",
+                once: true
             },
-            y: 60,
+            y: 70,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.9,
             stagger: 0.18,
             ease: "power3.out",
-            delay: 0.3
+            delay: 0.25
         });
     });
 
-    
+
     gsap.utils.toArray("ul.skills li").forEach((li, i) => {
         gsap.from(li, {
             scrollTrigger: {
                 trigger: li.parentElement,
                 start: "top 85%",
+                once: true
             },
-            scale: 0.8,
-            y: 40,
+            scale: 0.7,
+            y: 50,
             opacity: 0,
-            duration: 0.7,
-            delay: i * 0.09,   
-            ease: "back.out(1.9)"
+            duration: 0.75,
+            delay: i * 0.09,
+            ease: "back.out(2.0)"  
         });
     });
 });
