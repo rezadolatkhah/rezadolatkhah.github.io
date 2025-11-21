@@ -232,3 +232,45 @@ footer span {
     .mobile-break { display: block; }
     footer p { line-height: 1.6; }
 }
+
+/* For Mobile Version */
+@media (max-width: 868px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+    
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+    }
+    
+    .contact-info h1 {
+        font-size: 2.8rem;
+    }
+    
+    .job-title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-details p {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h1 {
+        font-size: 2.5rem;
+    }
+    
+    .job-title {
+        font-size: 1.3rem;
+    }
+    
+    main {
+        padding: 0 20px !important;
+    }
+}
