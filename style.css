@@ -1,3 +1,23 @@
+main {
+    max-width: 1200px;
+    margin: 80px auto 60px auto !important;
+    padding: 0 80px !important; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 968px) {
+    main {
+        padding: 0 40px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: 0 25px !important;
+    }
+}
+
 :root {
     --bg: #0a0a0a;
     --card: #111111;
@@ -96,27 +116,28 @@ header::before {
     width: 100%;
 }
 
+
 h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-    position: relative;
-    display: inline-block;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    font-size: 2.8rem !important;
+    font-weight: 900 !important;
+    margin: 0 0 70px 0 !important;
+    padding-bottom: 24px !important;
+    background: linear-gradient(90deg, #ffffff, var(--accent), var(--accent2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
 }
 
 h2::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -10px;
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent), transparent);
-    border-radius: 2px;
-    box-shadow: 0 0 15px var(--accent);
+    bottom: 0;
+    width: 180px;        
+    height: 7px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 70%, transparent 100%);
+    border-radius: 4px;
+    box-shadow: 0 0 30px var(--accent);
 }
 
 ul.skills {
@@ -135,14 +156,46 @@ ul.skills li {
 }
 
 ul.skills li:hover {
-    transform: translateY(20px);
-    opacity: 0;
+    background: rgba(0, 255, 234, 0.25) !important;
+    box-shadow: 0 0 25px var(--accent) !important;
+    transform: translateY(-8px) scale(1.05) !important;
+    border-color: #00ffea;
 }
 
-ul.skills li:hover {
-    background: rgba(0, 255, 234, 0.2);
-    box-shadow: 0 0 20px var(--accent);
-    transform: translateY(-5px);
+ul.cert-list li {
+    margin-bottom: 10px;
 }
 
-/* بقیه استایل‌ها همان قبلی + این‌ها اضافه شدند */
+/* Added Just Now */
+
+.entry {
+    margin-bottom: 45px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+h3 {
+    color: #ffffff !important;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.date {
+    color: #00ffea;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 6px 0 10px 0;
+}
+
+.institution {
+    color: #cccccc;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
