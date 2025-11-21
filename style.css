@@ -1,65 +1,17 @@
-/* style.css – فقط تغییرات و اضافه‌ها (بقیه همان قبلی است) */
-
-header {
-    background: linear-gradient(135deg, #1e1e1e 0%, #1a1a2e 100%);
-    padding: 40px 20px;
-    border-bottom: none;
-}
-
-.header-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
 .profile-photo {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: 4px solid #444;
     object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.contact-info h1 {
-    font-size: 2.8rem;
-    margin: 0 0 10px 0;
-    color: #ffffff;
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(100, 150, 200, 0.4);
 }
 
-.contact-details p {
-    margin: 8px 0;
-    font-size: 1.05rem;
-}
-
-.contact-details a {
-    color: #66b3ff;
-}
-
-.entry {
-    margin-bottom: 30px;
-}
-
-.entry h3 {
-    color: #ffffff;
-    margin: 0 0 4px 0;
-    font-size: 1.35rem;
-}
-
-.date {
-    color: #88cc88;
-    font-weight: 500;
-    margin: 4px 0;
-}
-
-.institution {
-    color: #aaa;
-    font-style: italic;
-    margin-bottom: 8px;
-}
 
 ul.skills {
     display: flex;
@@ -69,21 +21,60 @@ ul.skills {
 }
 
 ul.skills li {
-    background: #2a2a2a;
-    padding: 8px 14px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #2a2a2a, #333);
+    padding: 10px 18px;
+    border-radius: 30px;
     font-size: 0.95rem;
     border: 1px solid #444;
+    transition: all 0.4s ease;
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-ul.cert-list li {
-    margin-bottom: 10px;
+ul.skills li:hover {
+    transform: translateY(-8px) scale(1.05);
+    background: linear-gradient(135deg, #333, #444);
+    box-shadow: 0 12px 25px rgba(100, 150, 200, 0.3);
 }
 
-section#references p {
-    margin-bottom: 20px;
+
+.entry {
+    background: rgba(40, 40, 50, 0.4);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border-left: 4px solid #66b3ff;
+    transition: all 0.5s ease;
 }
 
-section#references a {
+.entry:hover {
+    transform: translateX(10px);
+    background: rgba(50, 50, 60, 0.6);
+}
+
+
+a {
     color: #66b3ff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #66b3ff;
+    transition: width 0.4s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+a:hover {
+    color: #88ccff;
 }
