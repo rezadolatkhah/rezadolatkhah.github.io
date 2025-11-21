@@ -1,14 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.fade-in');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    sections.forEach(section => observer.observe(section));
-
+// script.js – Now it is better than before
+AOS.init({
+    duration: 1000,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 120,
+    delay: 0
 });
