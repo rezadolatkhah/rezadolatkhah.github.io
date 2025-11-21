@@ -262,80 +262,64 @@ a:visited {
 /* ===========================
    Social Icons
 =========================== */
-
 .social-links {
-    margin-top: 15px;
+    margin-top: 18px;
     display: flex;
-    gap: 20px;
+    gap: 22px;
     flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
 }
-
 .social-links a {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #0077b5; 
-}
-
-.social-links img {
-    width: 24px;
-    height: 24px;
-    filter: grayscale(100%); 
-    transition: filter 0.3s;
-}
-
-.social-links a:hover img {
-    filter: grayscale(0%);
-}
-
-/* ===========================
-   Social Icons
-=========================== */
-.social-links {
-    margin-top: 18px;
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: center; 
-}
-.social-links a {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    color: var(--light-gray);
+    color: var(--text);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 .social-links a:hover {
-    color: var(--accent);
+    opacity: 0.8;
+    transform: translateY(-2px);
 }
+/* اندازه آیکن ثابت و کوچیک */
 .social-links img {
-    width: 20px !important; 
-    height: 20px !important;
-    filter: grayscale(100%) brightness(2);
-    transition: all 0.3s;
+    width: 22px !important;
+    height: 22px !important;
+    filter: none !important;            /* فیلتر grayscale حذف شد */
+    transition: transform 0.3s ease;
 }
 .social-links a:hover img {
-    filter: grayscale(0%) brightness(1);
-    transform: scale(1.15);
+    transform: scale(1.2);
 }
 
+/* رنگ اصلی هر شبکه (بهترین راه – بدون فیلتر) */
+.social-links a[href*="linkedin"] img { filter: brightness(0) invert(1) hue-rotate(180deg) saturate(5); }   /* آبی لینکدین → سفید یا اصلی */
+.social-links a[href*="github"] img { filter: brightness(0) invert(1); }                                 /* مشکی گیت‌هاب → سفید */
+.social-links a[href*="researchgate"] img { filter: brightness(0) invert(1) hue-rotate(60deg); }       /* سبز → سفید مایل به سبز */
+.social-links a[href*="scholar"] img { filter: brightness(0) invert(1) hue-rotate(200deg); }            /* آبی گوگل → سفید */
+
+/* اگر می‌خوای همه آیکن‌ها کاملاً سفید باشن (ساده‌تر) – فقط این خط رو فعال کن و خطوط بالا رو کامنت کن */
+/* .social-links img { filter: brightness(0) invert(1) !important; } */
+
+
 /* ===========================
-   Removing Bullet Points
+   حذف بولت پوینت + جلوگیری از بیرون‌زدگی متن از چپ
 =========================== */
-ul, li {
+ul, ol, li {
     list-style: none !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
+    padding: 0;
+    margin: 0 0 15px 0;
 }
-ul {
-    margin: 0 0 15px 0 !important;
+
+/* مخصوص بخش مهارت‌ها و زبان‌ها که flex هستن */
+ul.skills,
+ul.languages,
+ul.cert-list {
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
 }
