@@ -259,4 +259,65 @@ a:visited {
     color: var(--accent) !important;
 }
 
+/* ===========================
+   Social Icons
+=========================== */
 
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #0077b5; 
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    filter: grayscale(100%); 
+    transition: filter 0.3s;
+}
+
+.social-links a:hover img {
+    filter: grayscale(0%);
+}
+
+/* ===========================
+   Removing Bullet Points (Skills + Languages)
+=========================== */
+ul.skills,
+ul.languages,
+.languages ul,
+.skills ul,
+ul.cert-list {
+    list-style: none !important;    /* حذف کامل bullet points */
+    padding-left: 0 !important;     /* حذف فاصله چپ */
+    margin: 0 0 15px 0 !important;  /* اختیاری: فاصله عمودی مناسب */
+}
+
+ul.skills li,
+ul.languages li,
+ul.cert-list li {
+    list-style: none !important;    /* برای اطمینان دوبل */
+}
+
+/* ===========================
+   Removing Bullet Points (for All)
+=========================== */
+ul { 
+    list-style: none !important; 
+    padding-left: 0 !important; 
+}
