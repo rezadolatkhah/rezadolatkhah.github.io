@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.fade-in');
     
@@ -9,9 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    sections.forEach(section => observer.observe(section));
+
 });
