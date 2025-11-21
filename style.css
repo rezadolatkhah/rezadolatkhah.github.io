@@ -116,8 +116,12 @@ ul.skills li {
     font-size: 0.95rem;
     transition: all .35s ease;
     box-shadow: 0 0 8px rgba(0,255,234,0.18);
-    /* Center the text inside the skill tag */
+    /* Center text inside the skill tag to resolve left-side alignment issues */
     text-align: center;
+    /* Prevents long text from causing horizontal overflow in narrow containers */
+    word-break: break-word; 
+    /* Ensures the element does not take up more space than its content needs */
+    display: inline-block;
 }
 ul.skills li:hover {
     background: rgba(0,255,234,0.25);
@@ -133,19 +137,24 @@ ul, ol, li {
 }
 ul { margin: 0 0 20px 0; }
 
-/* Certificate List with Dashes */
+
+/* Certificate List with Dashes (applies to the list in Certifications section) */
 .certificate-list {
     margin: 15px 0;
     padding: 0;
 }
 .certificate-list li {
     position: relative;
-    padding-left: 15px; /* Space for the dash */
+    /* Create space for the dash marker */
+    padding-left: 20px; 
     margin-bottom: 8px;
     line-height: 1.6;
+    /* Ensures list items behave as a block for better layout control */
+    display: block; 
+    text-align: left;
 }
 .certificate-list li::before {
-    content: '–'; /* En dash or simple hyphen */
+    content: '–'; /* En dash marker */
     color: var(--accent);
     font-weight: bold;
     font-size: 1.1rem;
@@ -153,6 +162,7 @@ ul { margin: 0 0 20px 0; }
     left: 0;
     top: 0;
 }
+
 
 /* =========================== SOCIAL ICONS – White and Elegant =========================== */
 .social-links {
@@ -205,4 +215,4 @@ a:visited { color: var(--accent) !important; }
     .contact-info h1 { font-size: 2rem; }
     .job-title { font-size: 1.1rem; }
     h2 { font-size: 2rem !important; margin-bottom: 45px !important; }
-                      }
+}
