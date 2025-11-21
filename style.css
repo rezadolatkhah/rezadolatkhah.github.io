@@ -296,28 +296,46 @@ a:visited {
 }
 
 /* ===========================
-   Removing Bullet Points (Skills + Languages)
+   Social Icons
 =========================== */
-ul.skills,
-ul.languages,
-.languages ul,
-.skills ul,
-ul.cert-list {
-    list-style: none !important;    /* حذف کامل bullet points */
-    padding-left: 0 !important;     /* حذف فاصله چپ */
-    margin: 0 0 15px 0 !important;  /* اختیاری: فاصله عمودی مناسب */
+.social-links {
+    margin-top: 18px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center; 
 }
-
-ul.skills li,
-ul.languages li,
-ul.cert-list li {
-    list-style: none !important;    /* برای اطمینان دوبل */
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+.social-links a:hover {
+    color: var(--accent);
+}
+.social-links img {
+    width: 20px !important; 
+    height: 20px !important;
+    filter: grayscale(100%) brightness(2);
+    transition: all 0.3s;
+}
+.social-links a:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.15);
 }
 
 /* ===========================
-   Removing Bullet Points (for All)
+   Removing Bullet Points
 =========================== */
-ul { 
-    list-style: none !important; 
-    padding-left: 0 !important; 
+ul, li {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+ul {
+    margin: 0 0 15px 0 !important;
 }
