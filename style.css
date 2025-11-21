@@ -325,7 +325,29 @@ ul.cert-list {
 }
 
 /* ===========================
-فاصله هدر
+   فاصله عالی و یکسان تیترها (h2) از محتوا + خط زیر تیتر
 =========================== */
-h2 { margin-bottom: 50px !important; }
-h2 + * { margin-top: -20px !important; }
+h2 {
+    margin-bottom: 55px !important;     /* فاصله کلی تیتر از بخش بعدی */
+    padding-bottom: 20px !important;   /* فاصله متنورود متن تیتر تا خط رنگی */
+    position: relative;
+}
+
+h2::after {
+    bottom: 0 !important;              /* خط رنگی دقیق زیر تیتر بمونه */
+}
+
+/* فاصله محتوای بعد از هر h2 (لیست مهارت، زبان، افتخارات، گواهینامه و ...) */
+h2 + * {
+    margin-top: 25px !important;       /* این خط همه بخش‌ها رو یکنواخت می‌کنه */
+}
+
+/* مخصوص لیست‌های ساده مثل Honors & Awards و Languages */
+h2 + ul,
+h2 + div > ul,
+ul.languages,
+ul.honors,
+ul.cert-list {
+    margin-top: 30px !important;
+    padding-left: 0 !important;
+}
