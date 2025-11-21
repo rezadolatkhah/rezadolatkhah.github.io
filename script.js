@@ -1,8 +1,10 @@
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    
+    //------------------------------
+    // Header animations
+    //------------------------------
     gsap.from("header .profile-photo", {
         duration: 1.2,
         y: -100,
@@ -18,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.3
     });
 
-    
     gsap.from(".job-title", {
         duration: 0.9,
         y: 40,
@@ -36,71 +37,80 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.6
     });
 
-    
+
+    //------------------------------
+    // Initial sections fade-in (LOAD animation)
+    //------------------------------
     const allSections = gsap.utils.toArray("main section");
 
-    gsap.timeline({
-        defaults: { ease: "power4.out" },
-        delay: 1.0 
-    })
-    .from(allSections, {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        stagger: 0.28,        
-    })
-    .from(allSections, {
-        scale: 0.95,
-        duration: 1.4,
-        stagger: 0.28,
-        ease: "power2.inOut"
-    }, "-=1.6"); 
-
-
-    allSections.forEach(section => {
-        
-        gsap.from(section.querySelector("h2"), {
-            scrollTrigger: {
-                trigger: section,
-                start: "top 82%",
-                once: true 
-            },
-            x: -120,
+    gsap.timeline({ delay: 1, defaults: { ease: "power3.out" } })
+        .from(allSections, {
             opacity: 0,
+            y: 40,
             duration: 1.1,
-            ease: "power3.out"
+            stagger: 0.22
         });
 
 
-        gsap.from(section.querySelectorAll(".entry, .skills-category, ul.cert-list li, ul.skills li, #references p, .institution, .date"), {
-            scrollTrigger: {
-                trigger: section,
-                start: "top 82%",
-                once: true
-            },
-            y: 70,
-            opacity: 0,
-            duration: 0.9,
-            stagger: 0.18,
-            ease: "power3.out",
-            delay: 0.25
-        });
+    //------------------------------
+    // Scroll animations for each section
+    //------------------------------
+    allSections.forEach(section => {
+
+        // Title <h2>
+        if (section.querySelector("h2")) {
+            gsap.from(section.querySelector("h2"), {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                    once: true
+                },
+                x: -120,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        }
+
+        // Content inside the section
+        gsap.from(
+            section.querySelectorAll(
+                ".entry, .skills-category, ul.cert-list li, ul.skills li, #references p, .institution, .date"
+            ),
+            {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                    once: true
+                },
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
+                delay: 0.2
+            }
+        );
     });
 
 
-    gsap.utils.toArray("ul.skills li").forEach((li, i) => {
+    //------------------------------
+    // Skills Wave Animation (Bouncy + Nice)
+    //------------------------------
+    gsap.utils.toArray("ul.skills li").forEach((li, index) => {
         gsap.from(li, {
             scrollTrigger: {
-                trigger: li.parentElement,
-                start: "top 85%",
+                trigger: li,
+                start: "top 90%",
                 once: true
             },
             scale: 0.7,
-            y: 50,
+            y: 40,
             opacity: 0,
-            duration: 0.75,
-            delay: i * 0.09,
-            ease: "back.out(2.0)"  
+            duration: 0.65,
+            delay: index * 0.09,
+            ease: "back.out(2)"
         });
     });
+
 });
