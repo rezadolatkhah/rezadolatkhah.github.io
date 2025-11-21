@@ -2,6 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    
     gsap.from("header .profile-photo", {
         duration: 1.2,
         y: -100,
@@ -17,6 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.3
     });
 
+    gsap.from(".job-title", {   
+        duration: 0.8,
+        y: 0,
+        y: 30,
+        opacity: 0,
+        ease: "power3.out",
+        delay: 0.5
+    });
+
     gsap.from(".contact-details p", {
         duration: 0.8,
         x: 200,
@@ -26,7 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.6
     });
 
-    gsap.utils.toArray(".section").forEach(section => {
+    
+    const sections = gsap.utils.toArray("main section");
+
+    gsap.timeline({
+        defaults: { opacity: 0, y: 60, ease: "power3.out" },
+        delay: 1.2   
+    })
+    .from(sections, {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.25,          
+        ease: "power4.out"
+    })
+    .from(sections, {
+        scale: 0.96,
+        duration: 1.2,
+        stagger: 0.25,
+        ease: "power2.inOut"
+    }, "-=1.4"); 
+
+    
+    gsap.utils.toArray(".section, .fade-in").forEach(section => {
         gsap.from(section.querySelector("h2"), {
             scrollTrigger: {
                 trigger: section,
@@ -46,13 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 60,
             opacity: 0,
             duration: 0.8,
-            stagger: 0.15, 
+            stagger: 0.18,
             ease: "power3.out",
             delay: 0.3
         });
     });
 
-
+    
     gsap.utils.toArray("ul.skills li").forEach((li, i) => {
         gsap.from(li, {
             scrollTrigger: {
@@ -62,10 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 0.8,
             y: 40,
             opacity: 0,
-            duration: 0.6,
-            delay: i * 0.08,
-            ease: "back.out(1.7)"
+            duration: 0.7,
+            delay: i * 0.09,   
+            ease: "back.out(1.9)"
         });
     });
-});
 });
