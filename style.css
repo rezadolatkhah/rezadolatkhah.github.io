@@ -1,56 +1,34 @@
-/* ===========================
-   GLOBAL LAYOUT
-=========================== */
-
+/* =========================== GLOBAL LAYOUT =========================== */
 main {
     max-width: 1200px;
     margin: 60px auto 50px auto !important;
-    padding: 0 60px !important; 
+    padding: 0 60px !important;
     width: 100%;
     box-sizing: border-box;
 }
+@media (max-width: 968px) { main { padding: 0 35px !important; } }
+@media (max-width: 640px) { main { padding: 0 20px !important; } }
 
-@media (max-width: 968px) {
-    main {
-        padding: 0 35px !important;
-    }
-}
-
-@media (max-width: 640px) {
-    main {
-        padding: 0 20px !important;
-    }
-}
-
-/* ===========================
-   COLORS & BASE
-=========================== */
-
+/* =========================== COLORS & BASE =========================== */
 :root {
     --bg: #0a0a0a;
-    --card: #111111;
     --text: #e0e0e0;
     --accent: #00ffea;
     --accent2: #ff00aa;
-    --gray: #888;
     --light-gray: #aaaaaa;
 }
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg);
+    background: var(--bg);
     font-size: 0.97rem;
     line-height: 1.6;
     color: #d9d9d9;
     overflow-x: hidden;
 }
 
-/* ===========================
-   HEADER
-=========================== */
-
+/* =========================== HEADER =========================== */
 header {
     background: linear-gradient(135deg, #0f0f1f 0%, #0a0a1a 100%);
     padding: 45px 15px;
@@ -58,7 +36,6 @@ header {
     position: relative;
     overflow: hidden;
 }
-
 .header-content {
     max-width: 1100px;
     margin: 0 auto;
@@ -66,53 +43,41 @@ header {
     align-items: center;
     justify-content: center;
     gap: 50px;
-    flex-wrap: wrap;     
+    flex-wrap: wrap;
     position: relative;
     z-index: 2;
 }
-
-
 .profile-photo {
     width: 135px;
     height: 135px;
     border-radius: 50%;
     border: 3px solid var(--accent);
-    box-shadow: 0 0 0 22px rgba(0, 255, 234, 0.38);
+    box-shadow: 0 0 0 22px rgba(0,255,234,0.38);
     object-fit: cover;
-    transition: transform 0.35s ease;
+    transition: transform .35s ease;
 }
-
 .contact-info h1 {
     font-size: 2.55rem;
     font-weight: 800;
-    margin: 0;
-    margin-bottom: 10px !important;
+    margin: 0 0 10px 0 !important;
     letter-spacing: -0.6px;
     background: linear-gradient(90deg, #fff, var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.job-title { font-size: 1.25rem; font-weight: 600; margin: 6px 0 14px 0; }
 
-.job-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 6px 0 14px 0;
-}
-
-/* ===========================
-   SECTION TITLES
-=========================== */
-
+/* =========================== SECTION TITLES =========================== */
 h2 {
     font-size: 2.35rem !important;
     font-weight: 900 !important;
-    margin: 0 0 45px 0 !important;
-    padding-bottom: 18px !important;
+    margin: 0 0 55px 0 !important;
+    padding-bottom: 20px !important;
+    position: relative;
     background: linear-gradient(90deg, #ffffff, var(--accent), var(--accent2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 h2::after {
     content: '';
     position: absolute;
@@ -125,229 +90,95 @@ h2::after {
     box-shadow: 0 0 18px var(--accent);
 }
 
-/* ===========================
-   ENTRIES / CONTENT BLOCKS
-=========================== */
+/* فاصله یکنواخت بعد از هر h2 */
+h2 + * { margin-top: 30px !important; }
 
-.entry {
-    margin-bottom: 30px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+/* =========================== CONTENT BLOCKS =========================== */
+.entry { margin-bottom: 30px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+h3 { color: #fff !important; font-size: 1.35rem; font-weight: 700; margin: 0 0 8px 0; }
+.date { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin: 4px 0 8px 0; }
+.institution { font-size: 1rem; color: #ccc; margin-bottom: 10px; }
 
-h3 {
-    color: #fff !important;
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-}
-
-.date {
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin: 4px 0 8px 0;
-}
-
-.institution {
-    font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 10px;
-}
-
-/* ===========================
-   SKILLS + TAGS
-=========================== */
-
+/* =========================== SKILLS TAGS =========================== */
 ul.skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
 }
-
 ul.skills li {
     background: rgba(0,255,234,0.08);
     border: 1px solid var(--accent);
-    padding: 7px 15px;
-    border-radius: 24px;
+    padding: 8px 16px;
+    border-radius: 30px;
     font-size: 0.95rem;
-    transition: all 0.35s ease;
+    transition: all .35s ease;
     box-shadow: 0 0 8px rgba(0,255,234,0.18);
 }
-
 ul.skills li:hover {
     background: rgba(0,255,234,0.25);
     transform: translateY(-6px) scale(1.04);
 }
 
-/* ===========================
-   CERTIFICATIONS
-=========================== */
-
-ul.cert-list li {
-    margin-bottom: 7px;
-    font-size: 0.97rem;
+/* =========================== حذف بولت + جلوگیری از بیرون‌زدگی چپ =========================== */
+ul, ol, li {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
+ul { margin: 0 0 20px 0; }
 
-/* ===========================
-   FOOTER
-=========================== */
+/* =========================== SOCIAL ICONS – سفید و زیبا =========================== */
+.social-links {
+    margin-top: 18px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all .3s ease;
+}
+.social-links img {
+    width: 22px !important;
+    height: 22px !important;
+    filter: brightness(0) invert(1) !important;   /* همه آیکن‌ها کاملاً سفید */
+    transition: transform .3s ease;
+}
+.social-links a:hover { opacity: 0.85; }
+.social-links a:hover img { transform: scale(1.25); }
 
+/* =========================== FOOTER & MOBILE =========================== */
 footer {
     text-align: center;
     padding: 30px 20px 25px;
     margin-top: 70px;
     color: #666;
-    font-size: 0.85rem;
-    opacity: 0.75;
-    transition: opacity 0.3s ease;
+    font-size: .85rem;
+    opacity: .75;
+    transition: opacity .3s ease;
 }
+footer:hover { opacity: 1; }
 
-footer:hover {
-    opacity: 1;
-}
-
-/* ===========================
-   MOBILE TUNING
-=========================== */
+a { color: var(--accent) !important; text-decoration: none !important; }
+a:visited { color: var(--accent) !important; }
 
 @media (max-width: 868px) {
-    .header-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .profile-photo {
-        width: 120px;
-        height: 120px;
-    }
-
-    .contact-info h1 {
-        font-size: 2.2rem;
-    }
-
-    .job-title {
-        font-size: 1.15rem;
-    }
+    .header-content { flex-direction: column; gap: 20px; }
+    .profile-photo { width: 120px; height: 120px; }
+    .contact-info h1 { font-size: 2.2rem; }
+    .job-title { font-size: 1.15rem; }
 }
-
 @media (max-width: 480px) {
-    .contact-info h1 {
-        font-size: 2rem;
-    }
-    
-    .job-title {
-        font-size: 1.1rem;
-    }
-
-    h2 {
-        font-size: 2rem !important;
-        margin-bottom: 35px !important;
-    }
-}
-
-/* ===========================
-   Links Color
-=========================== */
-
-a {
-    color: var(--accent) !important;
-    text-decoration: none !important;
-}
-
-a:visited {
-    color: var(--accent) !important;
-}
-
-/* ===========================
-   Social Icons
-=========================== */
-.social-links {
-    margin-top: 18px;
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    list-style: none;
-}
-.social-links a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-.social-links a:hover {
-    opacity: 0.8;
-    transform: translateY(-2px);
-}
-/* اندازه آیکن ثابت و کوچیک */
-.social-links img {
-    width: 22px !important;
-    height: 22px !important;
-    filter: none !important;            /* فیلتر grayscale حذف شد */
-    transition: transform 0.3s ease;
-}
-.social-links a:hover img {
-    transform: scale(1.2);
-}
-
-/* رنگ اصلی هر شبکه (بهترین راه – بدون فیلتر) */
-.social-links a[href*="linkedin"] img { filter: brightness(0) invert(1) hue-rotate(180deg) saturate(5); }   /* آبی لینکدین → سفید یا اصلی */
-.social-links a[href*="github"] img { filter: brightness(0) invert(1); }                                 /* مشکی گیت‌هاب → سفید */
-.social-links a[href*="researchgate"] img { filter: brightness(0) invert(1) hue-rotate(60deg); }       /* سبز → سفید مایل به سبز */
-.social-links a[href*="scholar"] img { filter: brightness(0) invert(1) hue-rotate(200deg); }            /* آبی گوگل → سفید */
-
-/* اگر می‌خوای همه آیکن‌ها کاملاً سفید باشن (ساده‌تر) – فقط این خط رو فعال کن و خطوط بالا رو کامنت کن */
-/* .social-links img { filter: brightness(0) invert(1) !important; } */
-
-
-/* ===========================
-   حذف بولت پوینت + جلوگیری از بیرون‌زدگی متن از چپ
-=========================== */
-ul, ol, li {
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-    padding: 0;
-    margin: 0 0 15px 0;
-}
-
-/* مخصوص بخش مهارت‌ها و زبان‌ها که flex هستن */
-ul.skills,
-ul.languages,
-ul.cert-list {
-    padding: 0 !important;
-    margin: 0 0 20px 0 !important;
-}
-
-/* ===========================
-   فاصله عالی و یکسان تیترها (h2) از محتوا + خط زیر تیتر
-=========================== */
-h2 {
-    margin-bottom: 55px !important;     /* فاصله کلی تیتر از بخش بعدی */
-    padding-bottom: 20px !important;   /* فاصله متنورود متن تیتر تا خط رنگی */
-    position: relative;
-}
-
-h2::after {
-    bottom: 0 !important;              /* خط رنگی دقیق زیر تیتر بمونه */
-}
-
-/* فاصله محتوای بعد از هر h2 (لیست مهارت، زبان، افتخارات، گواهینامه و ...) */
-h2 + * {
-    margin-top: 25px !important;       /* این خط همه بخش‌ها رو یکنواخت می‌کنه */
-}
-
-/* مخصوص لیست‌های ساده مثل Honors & Awards و Languages */
-h2 + ul,
-h2 + div > ul,
-ul.languages,
-ul.honors,
-ul.cert-list {
-    margin-top: 30px !important;
-    padding-left: 0 !important;
+    .contact-info h1 { font-size: 2rem; }
+    .job-title { font-size: 1.1rem; }
+    h2 { font-size: 2rem !important; margin-bottom: 45px !important; }
 }
