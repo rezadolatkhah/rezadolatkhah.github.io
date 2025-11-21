@@ -90,7 +90,7 @@ h2::after {
     box-shadow: 0 0 18px var(--accent);
 }
 
-/* فاصله یکنواخت بعد از هر h2 */
+/* Uniform spacing after each h2 */
 h2 + * { margin-top: 30px !important; }
 
 /* =========================== CONTENT BLOCKS =========================== */
@@ -99,7 +99,7 @@ h3 { color: #fff !important; font-size: 1.35rem; font-weight: 700; margin: 0 0 8
 .date { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin: 4px 0 8px 0; }
 .institution { font-size: 1rem; color: #ccc; margin-bottom: 10px; }
 
-/* =========================== SKILLS TAGS =========================== */
+/* =========================== SKILLS TAGS (Centered Text) =========================== */
 ul.skills {
     display: flex;
     flex-wrap: wrap;
@@ -116,13 +116,16 @@ ul.skills li {
     font-size: 0.95rem;
     transition: all .35s ease;
     box-shadow: 0 0 8px rgba(0,255,234,0.18);
+    /* Center the text inside the skill tag */
+    text-align: center;
 }
 ul.skills li:hover {
     background: rgba(0,255,234,0.25);
     transform: translateY(-6px) scale(1.04);
 }
 
-/* =========================== حذف بولت + جلوگیری از بیرون‌زدگی چپ =========================== */
+/* =========================== List Style Overrides (Certificates) =========================== */
+/* Remove default list styles and left padding to prevent left-side overflow */
 ul, ol, li {
     list-style: none !important;
     padding-left: 0 !important;
@@ -130,7 +133,28 @@ ul, ol, li {
 }
 ul { margin: 0 0 20px 0; }
 
-/* =========================== SOCIAL ICONS – سفید و زیبا =========================== */
+/* Certificate List with Dashes */
+.certificate-list {
+    margin: 15px 0;
+    padding: 0;
+}
+.certificate-list li {
+    position: relative;
+    padding-left: 15px; /* Space for the dash */
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+.certificate-list li::before {
+    content: '–'; /* En dash or simple hyphen */
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* =========================== SOCIAL ICONS – White and Elegant =========================== */
 .social-links {
     margin-top: 18px;
     display: flex;
@@ -150,7 +174,7 @@ ul { margin: 0 0 20px 0; }
 .social-links img {
     width: 22px !important;
     height: 22px !important;
-    filter: brightness(0) invert(1) !important;   /* همه آیکن‌ها کاملاً سفید */
+    filter: brightness(0) invert(1) !important;   /* All icons are completely white */
     transition: transform .3s ease;
 }
 .social-links a:hover { opacity: 0.85; }
@@ -181,4 +205,4 @@ a:visited { color: var(--accent) !important; }
     .contact-info h1 { font-size: 2rem; }
     .job-title { font-size: 1.1rem; }
     h2 { font-size: 2rem !important; margin-bottom: 45px !important; }
-}
+                      }
