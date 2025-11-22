@@ -62,7 +62,10 @@ header {
 .contact-info h1 {
     font-size: 2.55rem;
     font-weight: 800;
-    margin: 0 0 10px 0 !important;
+
+    /* 🔻 فاصله h1 تا خط زیرین را کمتر کردم */
+    margin: 0 0 4px 0 !important; /* قبلاً 10px بود */
+
     letter-spacing: -0.6px;
     background: linear-gradient(90deg, #fff, var(--accent));
     -webkit-background-clip: text;
@@ -78,8 +81,12 @@ header {
 h2 {
     font-size: 2.35rem !important;
     font-weight: 900 !important;
-    margin: 0 0 55px 0 !important;
-    padding-bottom: 20px !important;
+
+    /* 🔻 فاصله از خط قبلی را کمتر کردم */
+    margin: 0 0 40px 0 !important; /* قبلاً 55px بود */
+
+    padding-bottom: 15px !important; /* کمی کمتر از 20px */
+
     position: relative;
     background: linear-gradient(90deg, #ffffff, var(--accent), var(--accent2));
     -webkit-background-clip: text;
@@ -102,7 +109,10 @@ h2 + * { margin-top: 30px !important; }
 .entry { 
     margin-bottom: 30px; 
     padding-bottom: 22px; 
-    border-bottom: 1px solid rgba(255,255,255,0.06); 
+
+    /* 🔻 خط جداکننده روشن‌تر شد */
+    border-bottom: 1px solid rgba(255,255,255,0.12); /* قبلاً 0.06 بود */
+
 }
 h3 { 
     color: #fff !important; 
