@@ -56,6 +56,9 @@ header {
     object-fit: cover;
     transition: transform .35s ease;
 }
+.profile-photo:hover {
+    transform: scale(1.05);
+}
 .contact-info h1 {
     font-size: 2.55rem;
     font-weight: 800;
@@ -65,7 +68,11 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.job-title { font-size: 1.25rem; font-weight: 600; margin: 6px 0 14px 0; }
+.job-title { 
+    font-size: 1.25rem; 
+    font-weight: 600; 
+    margin: 6px 0 14px 0; 
+}
 
 /* =========================== SECTION TITLES =========================== */
 h2 {
@@ -89,24 +96,48 @@ h2::after {
     border-radius: 4px;
     box-shadow: 0 0 18px var(--accent);
 }
-
-/* Uniform spacing after each h2 */
 h2 + * { margin-top: 30px !important; }
 
 /* =========================== CONTENT BLOCKS =========================== */
-.entry { margin-bottom: 30px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-h3 { color: #fff !important; font-size: 1.35rem; font-weight: 700; margin: 0 0 8px 0; }
-.date { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin: 4px 0 8px 0; }
-.institution { font-size: 1rem; color: #ccc; margin-bottom: 10px; }
+.entry { 
+    margin-bottom: 30px; 
+    padding-bottom: 22px; 
+    border-bottom: 1px solid rgba(255,255,255,0.06); 
+}
+h3 { 
+    color: #fff !important; 
+    font-size: 1.35rem; 
+    font-weight: 700; 
+    margin: 0 0 8px 0; 
+}
+.date { 
+    color: var(--accent); 
+    font-weight: 600; 
+    font-size: 0.95rem; 
+    margin: 4px 0 8px 0; 
+}
+.institution { 
+    font-size: 1rem; 
+    color: #ccc; 
+    margin-bottom: 10px; 
+}
 
-/* =========================== SKILLS TAGS (Centered Text) =========================== */
+/* =========================== FIXED LIST DEFAULTS =========================== */
+ul, ol {
+    margin: 0 0 20px 0;
+    padding-left: 20px;
+}
+ul li, ol li {
+    margin-bottom: 8px;
+}
+
+/* =========================== SKILLS TAGS =========================== */
 ul.skills {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     list-style: none !important;
     padding: 0 !important;
-    margin: 0 0 20px 0 !important;
 }
 ul.skills li {
     background: rgba(0,255,234,0.08);
@@ -116,11 +147,8 @@ ul.skills li {
     font-size: 0.95rem;
     transition: all .35s ease;
     box-shadow: 0 0 8px rgba(0,255,234,0.18);
-    /* Center text inside the skill tag to resolve left-side alignment issues */
     text-align: center;
-    /* Prevents long text from causing horizontal overflow in narrow containers */
-    word-break: break-word; 
-    /* Ensures the element does not take up more space than its content needs */
+    word-break: break-word;
     display: inline-block;
 }
 ul.skills li:hover {
@@ -128,33 +156,20 @@ ul.skills li:hover {
     transform: translateY(-6px) scale(1.04);
 }
 
-/* =========================== List Style Overrides (Certificates) =========================== */
-/* Remove default list styles and left padding to prevent left-side overflow */
-ul, ol, li {
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin-left: 0 !important;
-}
-ul { margin: 0 0 20px 0; }
-
-
-/* Certificate List with Dashes (applies to the list in Certifications section) */
+/* =========================== CERTIFICATE LIST =========================== */
 .certificate-list {
-    margin: 15px 0;
     padding: 0;
+    margin: 15px 0;
+    list-style: none !important;
 }
 .certificate-list li {
     position: relative;
-    /* Create space for the dash marker */
-    padding-left: 20px; 
-    margin-bottom: 8px;
+    padding-left: 22px; 
+    margin-bottom: 10px;
     line-height: 1.6;
-    /* Ensures list items behave as a block for better layout control */
-    display: block; 
-    text-align: left;
 }
 .certificate-list li::before {
-    content: '–'; /* En dash marker */
+    content: '–';
     color: var(--accent);
     font-weight: bold;
     font-size: 1.1rem;
@@ -163,8 +178,7 @@ ul { margin: 0 0 20px 0; }
     top: 0;
 }
 
-
-/* =========================== SOCIAL ICONS – White and Elegant =========================== */
+/* =========================== SOCIAL ICONS =========================== */
 .social-links {
     margin-top: 18px;
     display: flex;
@@ -184,13 +198,12 @@ ul { margin: 0 0 20px 0; }
 .social-links img {
     width: 22px !important;
     height: 22px !important;
-    filter: brightness(0) invert(1) !important;   /* All icons are completely white */
+    filter: brightness(0) invert(1) !important;
     transition: transform .3s ease;
 }
-.social-links a:hover { opacity: 0.85; }
 .social-links a:hover img { transform: scale(1.25); }
 
-/* =========================== FOOTER & MOBILE =========================== */
+/* =========================== FOOTER =========================== */
 footer {
     text-align: center;
     padding: 30px 20px 25px;
@@ -203,8 +216,8 @@ footer {
 footer:hover { opacity: 1; }
 
 a { color: var(--accent) !important; text-decoration: none !important; }
-a:visited { color: var(--accent) !important; }
 
+/* =========================== MOBILE REFINEMENTS =========================== */
 @media (max-width: 868px) {
     .header-content { flex-direction: column; gap: 20px; }
     .profile-photo { width: 120px; height: 120px; }
