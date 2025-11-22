@@ -103,7 +103,22 @@ h2::after {
     border-radius: 4px;
     box-shadow: 0 0 18px var(--accent);
 }
-h2 + * { margin-top: 30px !important; }
+/* h2 + * { margin-top: 30px !important; } */   /* غیرفعال شد */
+
+/* اضافه کردن این بلوک جدید */
+h3,
+ul.skills,
+.certificate-list,
+ul,
+ol {
+    margin-top: 30px !important;
+}
+
+/* : اولین المنت بعد از h2 فاصله نگیره تا دابل نشه */
+section > h2 + *,
+.entry > h2 + * {
+    margin-top: 0 !important;
+}
 
 /* =========================== CONTENT BLOCKS =========================== */
 .entry { 
@@ -239,3 +254,4 @@ a { color: var(--accent) !important; text-decoration: none !important; }
     .job-title { font-size: 1.1rem; }
     h2 { font-size: 2rem !important; margin-bottom: 45px !important; }
 }
+
