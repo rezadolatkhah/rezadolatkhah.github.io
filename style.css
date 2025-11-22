@@ -103,7 +103,7 @@ h2 + * { margin-top: 30px !important; }
 .entry { 
     margin-bottom: 30px; 
     padding-bottom: 22px; 
-    border-bottom: 1px solid rgba(255,255,255,0.06); 
+    border-bottom: 2px solid rgba(255,255,255,0.18); 
 }
 h3 { 
     color: #fff !important; 
@@ -230,3 +230,4 @@ a { color: var(--accent) !important; text-decoration: none !important; }
     .job-title { font-size: 1.1rem; }
     h2 { font-size: 2rem !important; margin-bottom: 45px !important; }
 }
+
